@@ -1,0 +1,32 @@
+.itemCard {
+    margin: 10px;
+  }
+  
+  .itemCardImage {
+    object-fit: cover;
+  }
+  
+  @media (max-width: 576px) {
+    .itemCard {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 577px) and (max-width: 768px) {
+    .itemCard {
+      width: 48%;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 992px) {
+    .itemCard {
+      width: 32%;
+    }
+  }
+  
+  @media (min-width: 993px) {
+    .itemCard {
+      width: 24%;
+    }
+  }
+  

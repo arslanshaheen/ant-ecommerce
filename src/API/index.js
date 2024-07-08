@@ -1,23 +1,28 @@
 // export const getAllProducts = () => {
-import Category from "./../Pages/Category/index";
+// import Category from "./../Pages/Category/index";
 //   return fetch("https://dummyjson.com/products")
 //     .then((res) => res.json())
 //     .then(console.log);
 // };
 export const getAllProducts = async () => {
   try {
-    const response = await fetch("https://dummyjson.com/products");
+    const response = await fetch("https://dummyjson.com/products/");
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data);
-    return data;
+
+    // Filter products with ID less than 14
+    const filteredProducts = data.products.filter(product => product.id < 16);
+
+    console.log(filteredProducts);
+    return { products: filteredProducts }; 
   } catch (error) {
     console.error("An error occurred:", error);
   }
 };
 
+console.log("https://fakestoreapi.com/products")
 // export const getProductsByCategory = (category) => {
 //   return fetch(`https://dummyjson.com/products/category/${category}`).then(
 //     (res) => res.json()

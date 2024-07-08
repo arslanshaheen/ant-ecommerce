@@ -10,19 +10,24 @@ import {
   InputNumber,
   message,
   Table,
+  
 } from "antd";
 import { useEffect, useState } from "react";
 import { HomeFilled, ShoppingCartOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { getCart } from "../../API";
+; // Make sure to adjust the path
+
 function AppHeader() {
   const navigate = useNavigate();
   const onMenuClick = (item) => {
     navigate(`/${item.key}`);
   };
+
   return (
-    <div className="appHeader">
-      <Menu
+    <div className="appHeader" style={{ display: 'flex', alignItems: 'center', padding: '0 20px' }}>
+   <Menu
+        className="menuContainer"
         onClick={onMenuClick}
         mode="horizontal"
         items={[
@@ -72,8 +77,13 @@ function AppHeader() {
             key: "fragrances",
           },
         ]}
+        style={{ flex: 1, fontSize: '16px' }} // Adjusted menu size
       />
-      <Typography.Title>Arslan store</Typography.Title>
+      <Input.Search
+        placeholder="Search..."
+        style={{ width: 200, marginRight: '20px' }} // Added search input
+      />
+      <Typography.Title style={{ margin: '0 20px' }}>The-Himalians Store</Typography.Title>
       <AppCart />
     </div>
   );
@@ -101,7 +111,7 @@ function AppHeader() {
             setCartDrawerOpen(true);
           }}
           count={cartItems.length}
-          className="soppingCartIcon"
+          className="shoppingCartIcon"
         >
           <ShoppingCartOutlined />
         </Badge>
@@ -237,4 +247,5 @@ function AppHeader() {
     );
   }
 }
+
 export default AppHeader;

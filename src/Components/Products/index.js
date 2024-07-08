@@ -34,10 +34,11 @@ function Products() {
   if (loading) {
     return <Spin spinning />;
   }
+ 
   return (
     <div>
       <List
-        grid={{ column: 3 }}
+        grid={{ column: 4  }}
         renderItem={(product, index) => {
           return (
             <Badge.Ribbon
